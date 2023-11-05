@@ -1,5 +1,6 @@
 package com.neo4j.moviedata.controller;
 
+import com.neo4j.moviedata.entity.Genres;
 import com.neo4j.moviedata.entity.Movie;
 import com.neo4j.moviedata.service.MovieServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +40,6 @@ public class MovieController {
         movie.setRating((String) requestBody.get("rating"));
         movie.setVotes((String) requestBody.get("votes"));
         movie.setRevenue((String) requestBody.get("revenue"));
-
         service.createMovie(movie);
 
         // Create relationships with genres, actors, and directors

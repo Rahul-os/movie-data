@@ -19,12 +19,11 @@ public interface MovieRepository extends Neo4jRepository<Movie, String> {
 //            "MERGE (genre:Genres {type: genre})\n" +
 //            "CREATE (movie)-[:IN]->(genre)")
     @Query("MATCH (movie:Movie {title: $movieTitle})\n" +
-            "WITH movie\n" +
             "UNWIND $genres AS genre\n" +
             "MERGE (g:Genres {type: genre})\n" +
-            "CREATE (movie)-[:IN]->(g)")
+            "CREATE (movie)-[:IN]->(g)")                                          // this is the excat query that is not creating duplicate relaionships !!!
     void createGenreRelationship(List<String> genres, String movieTitle);
-    //@Query("CREATE (person:Person {actors: $actor})-[:ACTED_IN]->(movie:Movie {title: $movieTitle})")
+//    @Query("CREATE (person:Person {actors: $actor})-[:ACTED_IN]->(movie:Movie {title: $movieTitle})")
 //    @Query("MATCH (movie:Movie {title: $movieTitle})\n" +
 //            "WITH movie\n" +
 //            "UNWIND movie.actors AS actor\n" +
