@@ -45,23 +45,26 @@ public class MovieController {
         // Create relationships with genres, actors, and directors
         if (requestBody.containsKey("genres")) {
             List<String> genres = (List<String>) requestBody.get("genres");
-            for (String genre : genres) {
-                service.createGenreRelationship(genre, movie.title);
-            }
+//            for (String genre : genres) {
+//                service.createGenreRelationship(genre, movie.title);
+//      }
+            service.createGenreRelationship(genres , movie.title);
         }
 
         if (requestBody.containsKey("actors")) {
             List<String> actors = (List<String>) requestBody.get("actors");
-            for (String actor : actors) {
-                service.createActorRelationship(actor , movie.title);
-            }
+//            for (String actor : actors) {
+//                service.createActorRelationship(actor , movie.title);
+//            }
+            service.createActorRelationship(actors , movie.title);
         }
 
         if (requestBody.containsKey("directors")) {
             List<String> directors = (List<String>) requestBody.get("directors");
-            for (String director : directors) {
-                service.createDirectorRelationship(director , movie.title);
-            }
+//            for (String director : directors) {
+//                service.createDirectorRelationship(director , movie.title);
+//            }
+            service.createDirectorRelationship(directors , movie.title);
         }
         return new ResponseEntity<>("Movie created successfully" , HttpStatus.CREATED);
     }

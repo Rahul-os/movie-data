@@ -11,11 +11,11 @@ public interface MovieService {
     public Movie createMovie(Movie movie);
 
 
-    void createGenreRelationship(String genre , String title);
+    void createGenreRelationship(List<String> genre , String title);
 
 
-    void createActorRelationship(String actor, String title);
+    void createActorRelationship(List<String> actor, String title);
 
-    void createDirectorRelationship(String director, String title);
+    void createDirectorRelationship(List<String> director, String title);
 
 }

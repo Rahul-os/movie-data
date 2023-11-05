@@ -24,17 +24,17 @@ public class MovieServiceImpl implements MovieService{
     }
 
     @Override
-    public void createGenreRelationship(String genre , String title) {
+    public void createGenreRelationship(List<String> genre , String title) {
         repository.createGenreRelationship(genre,title);
     }
 
     @Override
-    public void createActorRelationship(String actor, String title) {
+    public void createActorRelationship(List<String> actor, String title) {
         repository.crateActorRelationship(actor, title);
     }
 
     @Override
-    public void createDirectorRelationship(String director, String title) {
+    public void createDirectorRelationship(List<String> director, String title) {
         repository.createDirectorRelationship(director,title);
     }
 
